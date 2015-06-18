@@ -1,6 +1,6 @@
 plugins {
   id "com.github.hierynomus.license" version "0.11.0"
-  id "com.xebialabs.xldp" version "1.0.4"
+  id "com.xebialabs.xldp" version "1.0.5"
 }
 
 version='1.0.0'

@@ -27,7 +27,9 @@ if deployed.table:
 folder_dir = deployed.file.file.getParentFile().getCanonicalFile().toPath()
 locations = []
 for location in deployed.locations:
-    locations.extend("filesystem:%s/%s" % (folder_dir, location.lstrip("filesystem:")))
+    resolved_location = "filesystem:%s/%s" % (folder_dir, location.replace("filesystem:",""))
+    print "Adding flyway location: %s" % resolved_location
+    locations.append(resolved_location)
 flyway.setLocations(locations)
 
 print "Starting flyway migration"
