@@ -1,0 +1,40 @@
+plugins {
+  id "com.github.hierynomus.license" version "0.11.0"
+  id "com.xebialabs.xldp" version "1.0.4"
+}
+
+version='1.0.0'
+
+def apiVersion = '4.0.1'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven {
+    credentials {
+      username 'community-plugins'
+      password 'community'
+    }
+    url 'http://nexus.xebialabs.com/nexus/content/repositories/releases'
+  }
+
+}
+
+
+
+dependencies {
+  compile "com.xebialabs.deployit:udm-plugin-api:$apiVersion"
+  distBundle "org.flywaydb:flyway-core:3.2.1"
+}
+
+license {
+    header rootProject.file('src/main/license/xebialabs_community.license')
+    strictCheck true
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.xebialabs.com/deployit/synthetic"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+    <type type="flyway.Runner" extends="flyway.VirtualContainer" >
+        <property name="serverUrl" required="true" />
+        <property name="username" required="false"/>
+        <property name="password" required="false" password="true"/>
+    </type>
+
+    <type type="flyway.DeployedScripts" extends="udm.BaseDeployedArtifact" deployable-type="flyway.Scripts" container-type="flyway.Runner">
+        <generate-deployable type="flyway.Scripts" extends="udm.BaseDeployableFolderArtifact"/>
+        <property name="schemas" kind="set_of_string" required="true" />
+        <property name="table" kind="string" required="false" />
+        <property name="locations" kind="set_of_string" required="false" description="Location in archive containing scripts"/>
+        <property name="encoding" kind="string" required="false" />
+        <property name="baselineOnMigrate" kind="boolean" required="false" />
+    </type>
+
+</synthetic>
+
