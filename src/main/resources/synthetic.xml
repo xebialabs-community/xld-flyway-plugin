@@ -23,6 +23,9 @@
         <property name="locations" kind="set_of_string" required="false" description="Location in archive containing scripts"/>
         <property name="encoding" kind="string" required="false" />
         <property name="baselineOnMigrate" kind="boolean" required="false" />
+        <property name="username" required="false"/>
+        <property name="password" required="false" password="true"/>
+        <property name="startClean" required="false" kind="boolean" default="true" />
     </type>
 
 </synthetic>

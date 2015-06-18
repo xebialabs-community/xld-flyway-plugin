@@ -11,6 +11,14 @@ server_url = flyway_runner.getProperty("serverUrl")
 username = flyway_runner.getProperty("username")
 password = flyway_runner.getProperty("password")
 
+# Override from deployed.username if set
+if deployed.username:
+    username = deployed.username
+
+# Override from deployed.password if set
+if deployed.password:
+    password = deployed.password
+
 print "Connecting to flyway runner"
 
 
@@ -24,13 +32,17 @@ if deployed.encoding:
 if deployed.table:
     flyway.setTable(deployed.table)
 
-folder_dir = deployed.file.file.getParentFile().getCanonicalFile().toPath()
+folder_dir = deployed.file.file.getCanonicalFile().toPath()
 locations = []
 for location in deployed.locations:
     resolved_location = "filesystem:%s/%s" % (folder_dir, location.replace("filesystem:",""))
-    print "Adding flyway location: %s" % resolved_location
+    print "Adding flyway location: [%s] for folder [%s]" % (resolved_location,deployed.file.name)
     locations.append(resolved_location)
 flyway.setLocations(locations)
+
+if deployed.startClean:
+    print "Start with clean Flyway"
+    flyway.clean()
 
 print "Starting flyway migration"
 migrations = flyway.migrate()
