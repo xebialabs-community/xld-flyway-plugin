@@ -17,7 +17,7 @@ The Flyway plugin is a XL Deploy plugin that adds capability for migrating datab
 
 # Installation #
 
-Place the plugin JAR file into your `SERVER_HOME/plugins` directory.   Make sure you have additional runtime libiraries mentioned in the requirements section also installed in the correct directory.
+Place the plugin JAR file into your `SERVER_HOME/plugins` directory.
 
 # Usage #
 
