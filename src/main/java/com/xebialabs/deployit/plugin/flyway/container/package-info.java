@@ -4,6 +4,6 @@
  * FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
  */
 @Prefix("flyway")
-package com.xebialabs.deployit.plugin.docker.container;
+package com.xebialabs.deployit.plugin.flyway.container;
 
 import com.xebialabs.deployit.plugin.api.udm.Prefix;

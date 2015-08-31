@@ -5,6 +5,7 @@
 #
 
 from org.flywaydb.core import Flyway
+from org.flywaydb.core.internal.info import MigrationInfoDumper
 
 flyway_runner = deployed.container
 server_url = flyway_runner.getProperty("serverUrl")
@@ -20,7 +21,6 @@ if deployed.password:
     password = deployed.password
 
 print "Connecting to flyway runner"
-
 
 flyway = Flyway()
 flyway.setDataSource(server_url,username,password)
@@ -40,10 +40,14 @@ for location in deployed.locations:
     locations.append(resolved_location)
 flyway.setLocations(locations)
 
-if deployed.startClean:
-    print "Start with clean Flyway"
-    flyway.clean()
+try:
+    if deployed.startClean:
+        print "Start with clean Flyway"
+        flyway.clean()
 
-print "Starting flyway migration"
-migrations = flyway.migrate()
-print "Ended with [%s] migrations" % migrations
+    print "Starting flyway migration"
+    migrations = flyway.migrate()
+    print "Ended with [%s] migrations" % migrations
+finally:
+    # Show flyway info details
+    print "Flyway log results: ", MigrationInfoDumper.dumpToAsciiTable([flyway.info().current()])
