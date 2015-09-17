@@ -12,8 +12,6 @@ The Flyway plugin is a XL Deploy plugin that adds capability for migrating datab
 
 * **Requirements**
 	* **XL Deploy** 5.0.0
-	* **Additional Runtime Libraries**
-		* org.flywaydb:flyway-core:3.2.1
 
 # Installation #
 
