@@ -6,6 +6,9 @@
 
 from org.flywaydb.core import Flyway
 from org.flywaydb.core.internal.info import MigrationInfoDumper
+from org.flywaydb.core.api import FlywayException
+
+import sys
 
 flyway_runner = deployed.container
 server_url = flyway_runner.getProperty("serverUrl")
@@ -45,9 +48,16 @@ try:
         print "Start with clean Flyway"
         flyway.clean()
 
+    if deployed.repair:
+        print "Repair the Flyway metadata table."
+        flyway.repair()
+
     print "Starting flyway migration"
     migrations = flyway.migrate()
     print "Ended with [%s] migrations" % migrations
+except FlywayException, err:
+    print "Migration failed with error: ", err
+    sys.exit(1)
 finally:
     # Show flyway info details
     print "Flyway log results: ", MigrationInfoDumper.dumpToAsciiTable([flyway.info().current()])

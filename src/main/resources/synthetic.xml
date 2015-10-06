@@ -25,7 +25,8 @@
         <property name="baselineOnMigrate" kind="boolean" required="false" description="Whether to automatically call baseline when migrate is executed against a non-empty schema with no metadata table."/>
         <property name="username" required="false"/>
         <property name="password" required="false" password="true"/>
-        <property name="startClean" required="false" kind="boolean" default="true" description="Drops all objects (tables, views, procedures, triggers, ...) in the configured schemas. The schemas are cleaned in the order specified by the schemas property."/>
+        <property name="startClean" required="false" kind="boolean" default="false" description="Drops all objects (tables, views, procedures, triggers, ...) in the configured schemas. The schemas are cleaned in the order specified by the schemas property."/>
+        <property name="repair" required="false" kind="boolean" default="true" description="Repairs the Flyway metadata table."/>
     </type>
 
 </synthetic>

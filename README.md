@@ -35,3 +35,4 @@ Place the plugin JAR file into your `SERVER_HOME/plugins` directory.
     * username - `string` - 
     * password - `string` - 
     * startClean - `boolean` - Drops all objects (tables, views, procedures, triggers, ...) in the configured schemas. The schemas are cleaned in the order specified by the schemas property.
+    * repair - `boolean` - Repairs the Flyway metadata table.
