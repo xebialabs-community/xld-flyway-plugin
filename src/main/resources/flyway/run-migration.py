@@ -23,17 +23,50 @@ if deployed.username:
 if deployed.password:
     password = deployed.password
 
+print "*** Start of Flyway configuration ***"
+print "username         : %s" % username
+# do not print the password
+print "schemas          : %s" % deployed.schemas
+print "table            : %s" % deployed.table
+print "locations        : %s" % deployed.locations
+print "encoding         : %s" % deployed.encoding
+print "baselineOnMigrate: %s" % deployed.baselineOnMigrate
+print "repair           : %s" % deployed.repair
+print "outOfOrder       : %s" % deployed.outOfOrder
+print "validateOnMigrate: %s" % deployed.validateOnMigrate
+print "*** End of Flyway configuration ***"
+print ""
 print "Connecting to flyway runner"
 
 flyway = Flyway()
+
 flyway.setDataSource(server_url,username,password)
+
 flyway.setSchemas(list(deployed.schemas))
-if deployed.baselineOnMigrate:
-    flyway.setBaselineOnMigrate(deployed.baselineOnMigrate)
+
+# a boolean is required
+flyway.setBaselineOnMigrate(deployed.baselineOnMigrate)
+
 if deployed.encoding:
     flyway.setEncoding(deployed.encoding)
+
 if deployed.table:
     flyway.setTable(deployed.table)
+
+# a boolean is required
+flyway.setOutOfOrder(deployed.outOfOrder)
+
+# a boolean is required
+flyway.setValidateOnMigrate(deployed.validateOnMigrate)
+
+# a boolean is required
+flyway.setPlaceholderReplacement(deployed.placeholderReplacement)
+
+if deployed.placeholderPrefix:
+    flyway.setPlaceholderPrefix(deployed.placeholderPrefix)
+
+if deployed.placeholderSuffix:
+    flyway.setPlaceholderSuffix(deployed.placeholderSuffix)
 
 folder_dir = deployed.file.file.getCanonicalFile().toPath()
 locations = []
@@ -45,16 +78,16 @@ flyway.setLocations(locations)
 
 try:
     if deployed.startClean:
-        print "Start with clean Flyway"
+        print "Clean the Flyway schemas"
         flyway.clean()
 
     if deployed.repair:
-        print "Repair the Flyway metadata table."
+        print "Repair the Flyway metadata table"
         flyway.repair()
 
-    print "Starting flyway migration"
+    print "Start the Flyway migration"
     migrations = flyway.migrate()
-    print "Ended with [%s] migrations" % migrations
+    print "Number of migration scripts run: %s" % migrations
 except FlywayException, err:
     print "Migration failed with error: ", err
     sys.exit(1)
