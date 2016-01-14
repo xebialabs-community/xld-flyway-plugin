@@ -1,3 +1,7 @@
+# Build status #
+
+[![Build Status](https://travis-ci.org/xebialabs-community/xld-flyway-plugin.svg?branch=master)](https://travis-ci.org/xebialabs-community/xlr-flyway-plugin)
+
 # Preface #
 
 This document describes the functionality provided by the Flyway plugin.
