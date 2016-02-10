@@ -16,7 +16,6 @@ See http://flywaydb.org/documentation/commandline/migrate.html for more informat
 
 # History #
 
-* version - author - remark
 * v1.0.0 - jdewinne - First version 
 * v1.1.0 - gpaulissen	- Added outOfOrder and validateOnMigrate flags. Removed startClean flag (from the UI).
 * v1.2.0 - gpaulissen - The XL Deploy NOOP operation must act like CREATE or MODIFY. This ensures that running XL Deploy after a database backup restore will migrate the database so it will really resemble the XL Deploy administration.
