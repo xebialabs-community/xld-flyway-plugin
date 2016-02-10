@@ -13,6 +13,14 @@
             <type>flyway.DeployedScripts</type>
             <operation>CREATE</operation>
             <operation>MODIFY</operation>
+                
+            <!-- MT-526 Database backups disturb the XL Deploy administration.
+
+                 Gert-Jan Paulissen 9-FEB-2016: 
+                 Adding NOOP as an operation enables Flyway 
+                 to sync the Flyway, DB and XL Deploy administration.
+            -->
+            <operation>NOOP</operation>
         </conditions>
         <steps>
             <jython>

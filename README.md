@@ -14,6 +14,15 @@ The Flyway plugin is a XL Deploy plugin that adds capability for migrating datab
 
 See http://flywaydb.org/documentation/commandline/migrate.html for more information about the Flyway commands and configuration options used by this API.
 
+# History #
+
+version	 author            	 remark
+-------	 ------            	 ------
+v1.0.0 	 Joris de Winne    	 First version 
+v1.1.0 	 Gert-Jan Paulissen	 Added outOfOrder and validateOnMigrate flags. Removed startClean flag (from the UI).
+v1.2.0 	 Gert-Jan Paulissen	 The XL Deploy NOOP operation must act like CREATE or MODIFY.
+                             This ensures that running XL Deploy after a database backup restore will migrate the database so it will really resemble the XL Deploy administration.
+
 # Requirements #
 
 * **Requirements**
@@ -22,6 +31,10 @@ See http://flywaydb.org/documentation/commandline/migrate.html for more informat
 # Build #
 
 $ ./gradlew xlPlugin
+
+or, if you are behind a proxy server:
+
+$ ./gradlew -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=3128 xlPlugin
 
 And go to the build/distributions to find your plugin XLDP file.
 
@@ -41,15 +54,16 @@ Finally, restart the server.
 # API #
 
 * `flyway.Scripts`
-    * username          - `string`        - The user to use to connect to the database.
-    * password          - `string` 				- The password to use to connect to the database.
-    * schemas           - `set_of_string` - Case-sensitive list of schemas managed by Flyway.
-		* table             - `string` 				- The name of Flyway's metadata table.
-		* locations         - `set_of_string` - List of locations to scan recursively for migrations.
-		* encoding          - `string` 				- The encoding of Sql migrations.
-		* baselineOnMigrate - `boolean` 			- Whether to automatically call baseline when migrate is executed against a non-empty schema with no metadata table.
-																					  This is useful for initial Flyway production deployments on projects with an existing DB.
-		* repair            - `boolean` 		  - Repairs the Flyway metadata table.
-    * outOfOrder        - `boolean` 			- Allows migrations to be run "out of order". 
-																						If you already have versions 1 and 3 applied, and now a version 2 is found, it will be applied too instead of being ignored.
-    * validateOnMigrate - `boolean` 			- Whether to automatically call validate or not when running migrate.
+    * username          - `string`          - The user to use to connect to the database.
+    * password          - `string`          - The password to use to connect to the database.
+    * schemas           - `set_of_string`   - Case-sensitive list of schemas managed by Flyway.
+    * table             - `string`          - The name of Flyway's metadata table.
+    * locations         - `set_of_string`   - List of locations to scan recursively for migrations.
+    * encoding          - `string`          - The encoding of Sql migrations.
+    * baselineOnMigrate - `boolean`         - Whether to automatically call baseline when migrate is executed against a non-empty schema with no metadata table.
+                                              This is useful for initial Flyway production deployments on projects with an existing DB.
+    * repair            - `boolean`         - Repairs the Flyway metadata table.
+    * outOfOrder        - `boolean`         - Allows migrations to be run "out of order". 
+                                              If you already have versions 1 and 3 applied, and now a version 2 is found, it will be applied too instead of being ignored.
+    * validateOnMigrate - `boolean`         - Whether to automatically call validate or not when running migrate.
+ 	
