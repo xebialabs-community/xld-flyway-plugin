@@ -1,12 +1,24 @@
-# Build status #
-
-[![Build Status](https://travis-ci.org/xebialabs-community/xld-flyway-plugin.svg?branch=master)](https://travis-ci.org/xebialabs-community/xld-flyway-plugin)
-
 # Preface #
 
 This document describes the functionality provided by the Flyway plugin.
 
 See the **XL Deploy Reference Manual** for background information on XL Deploy and deployment concepts.
+
+# CI status #
+
+[![Build Status][xld-flyway-plugin-travis-image]][xld-flyway-plugin-travis-url]
+[![Codacy Badge][xld-flyway-plugin-codacy-image] ][xld-flyway-plugin-codacy-url]
+[![Code Climate][xld-flyway-plugin-code-climate-image] ][xld-flyway-plugin-code-climate-url]
+
+[xld-flyway-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xld-flyway-plugin.svg?branch=master
+[xld-flyway-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xld-flyway-plugin
+[xld-flyway-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/64a366db9c814c81807b0ad87b5830a6
+[xld-flyway-plugin-codacy-url]: https://www.codacy.com/app/joris-dewinne/xld-flyway-plugin
+[xld-flyway-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xld-flyway-plugin/badges/gpa.svg
+[xld-flyway-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-flyway-plugin
+
+
+
 
 # Overview #
 
