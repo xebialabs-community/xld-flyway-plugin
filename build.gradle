@@ -1,18 +1,23 @@
+import org.apache.tools.ant.filters.ReplaceTokens
 plugins {
-  id "com.github.hierynomus.license" version "0.11.0"
+  id "com.github.hierynomus.license" version "0.13.0"
   id "com.xebialabs.xldp" version "1.0.5"
+  id "com.xebialabs.xld.docker" version "1.1.0"
 }
-
-version='1.1.0'
-
-def apiVersion = '4.0.1'
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+xldDocker {
+  compileVersion = 'v5.5.5.4'
+  runVersion = 'v5.5.5.5'
+}
+
+version='2.0.0'
+
+def apiVersion = '2016.1.6'
 
 repositories {
   mavenLocal()
@@ -27,11 +32,16 @@ repositories {
 
 }
 
-
-
 dependencies {
   compile "com.xebialabs.deployit:udm-plugin-api:$apiVersion"
-  distBundle "org.flywaydb:flyway-core:3.2.1"
+  distBundle "org.flywaydb:flyway-core:4.0.3"
+}
+
+processResources.configure {
+  filter ReplaceTokens, tokens: [
+    'project.version': version.toString(),
+    'project.name': rootProject.name
+  ]
 }
 
 license {
