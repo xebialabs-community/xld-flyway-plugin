@@ -7,7 +7,7 @@ deploy:
   provider: releases
   api_key:
     secure: dxjo2cKlfwfkDJvZVr3e/81KpNbE+5dDxUh95kTbSg6HW7hH/3neDcx3jmavh4yy3ugr2ze+Ct/aikTAKzsKSN33unqIraA0by153Px34VHXj9ZhO5IX4e1mCiehev72AxJ+V5IrcDAmRA6VO9Y+eheSfSjzdih6I4waYSQyPUM1NR62ZZY8vU4TWLoL6ISnOZ9GeVIV3hy/t9ZaHADFFZ7/pymJ72VqjS+LgWBuJ9on0oYHmxNlBC34WMqo7vm918JvHtzkkmXlT8oTcLZ18iiKijS/TTedqxYJq66sQfzHgdWUyr2In+UK05pxQVPChxa1aM5Cx61i7fTCQuhcn4pJzoVtmcAWWOg8g+p4+1o7zCNqLEshuBcbPeCp8rhWoXSBjNbL1oq7ogllbS+sK+zvoVuBe4/8CgvlYWeXIOc1wS6FgVbKnqq9QmWyarf4Ex2hw87J1rMpJRBV37B7fIqWrkXoTEnJMv2H/ZfxNLjuz4PoLBvXnJoG/SsJEA9oelkxh/sP8HEnznU631VBmU9nArJ1lQ0LRDkoF7KCgJ9abLK6WOjerbO3z9c1f+rpOE57bELI2osCyQ8kNGqJBOpvHnrYRxhE0XJ5witRsmk6/GVgrTjvfZxKq2OitC8QZsljhEKfbBpYCNUjjfe/5G7z3AoBywJtrzWNzVLFOac=
-  file: build/distributions/xld-flyway-plugin-1.1.0.xldp
+  file: build/distributions/xld-flyway-plugin-2.0.0.xldp
   skip_cleanup: true
   on:
     all_branches: true
