@@ -68,6 +68,9 @@ if deployed.placeholderPrefix:
 if deployed.placeholderSuffix:
     flyway.setPlaceholderSuffix(deployed.placeholderSuffix)
 
+if deployed.targetVersion:
+    flyway.setTargetAsString(deployed.targetVersion)
+
 folder_dir = deployed.file.path
 locations = []
 for location in deployed.locations:
