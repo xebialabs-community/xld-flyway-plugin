@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<xl:export xmlns:xl="http://www.xebialabs.com/xl-export">
+  <xl:metadata>
+    <xl:exported-by>admin</xl:exported-by>
+    <xl:exported-at>2016-11-03T21:06:45.582+0000</xl:exported-at>
+    <xl:exported-format-version>5.5.5</xl:exported-format-version>
+    <xl:encryption-key-fingerprint>f6094d333c0736339884d1fe38d9c54e14019ac9</xl:encryption-key-fingerprint>
+  </xl:metadata>
+  <xl:exported-configuration-items exported-root-id="/">
+    <udm.DeploymentPackage id="Applications/DB Package/1.0.0" created-by="admin" created-at="2016-11-03T20:56:58.935+0000" last-modified-by="admin" last-modified-at="2016-11-03T21:02:42.336+0000">
+      <orchestrator />
+      <applicationDependencies />
+    </udm.DeploymentPackage>
+    <udm.Application id="Applications/DB Package" created-by="admin" created-at="2016-11-03T20:56:51.425+0000" last-modified-by="admin" last-modified-at="2016-11-03T20:56:59.018+0000">
+      <lastVersion>1.0.0</lastVersion>
+    </udm.Application>
+    <udm.Environment id="Environments/Dev" created-by="admin" created-at="2016-11-03T20:54:04.038+0000" last-modified-by="admin" last-modified-at="2016-11-03T20:54:04.038+0000">
+      <members>
+        <ci ref="Infrastructure/flyway" />
+      </members>
+      <dictionaries />
+      <triggers />
+    </udm.Environment>
+    <flyway.Runner id="Infrastructure/flyway" created-by="admin" created-at="2016-11-03T20:53:53.168+0000" last-modified-by="admin" last-modified-at="2016-11-03T20:53:53.168+0000">
+      <tags />
+      <serverUrl>jdbc:mysql://db/test</serverUrl>
+      <username>root</username>
+      <password>{b64}6TbkTwHeQFf5SAV5ZseaRg==</password>
+    </flyway.Runner>
+    <flyway.Scripts id="Applications/DB Package/1.0.0/flyway_scripts" created-by="admin" created-at="2016-11-03T21:02:41.274+0000" last-modified-by="admin" last-modified-at="2016-11-03T21:03:20.437+0000" file="Applications/DB Package/1.0.0/flyway_scripts/flyway.zip">
+      <tags />
+      <scanPlaceholders>true</scanPlaceholders>
+      <placeholders />
+      <checksum>ffd1bad6a8cf604b4f763da66e8b7d028743369e</checksum>
+      <fileUri>jcr:flyway.zip</fileUri>
+      <schemas>
+        <value>myschema</value>
+      </schemas>
+      <locations />
+    </flyway.Scripts>
+  </xl:exported-configuration-items>
+</xl:export>

@@ -12,12 +12,12 @@
 
     <type type="flyway.Runner" extends="flyway.VirtualContainer">
         <property name="serverUrl"
-                  required="true"/>
+                  required="true" description="The jdbc url to use to connect to the database"/>
         <property name="username"
-                  required="false"/>
+                  required="false" description="The user to use to connect to the database"/>
         <property name="password"
                   required="false"
-                  password="true"/>
+                  password="true" description="The password to use to connect to the database"/>
     </type>
 
     <type type="flyway.DeployedScripts" extends="udm.BaseDeployedArtifact" deployable-type="flyway.Scripts"

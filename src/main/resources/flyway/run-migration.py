@@ -68,7 +68,7 @@ if deployed.placeholderPrefix:
 if deployed.placeholderSuffix:
     flyway.setPlaceholderSuffix(deployed.placeholderSuffix)
 
-folder_dir = deployed.file.file.getCanonicalFile().toPath()
+folder_dir = deployed.file.path
 locations = []
 for location in deployed.locations:
     resolved_location = "filesystem:%s/%s" % (folder_dir, location.replace("filesystem:",""))
