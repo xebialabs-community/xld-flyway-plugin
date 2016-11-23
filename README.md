@@ -29,7 +29,7 @@ See http://flywaydb.org/documentation/commandline/migrate.html for more informat
 # Requirements #
 
 * **Requirements**
-  * **XL Deploy** 5.0.0+
+  * **XL Deploy** 5.1.0+
 
 # Build #
 

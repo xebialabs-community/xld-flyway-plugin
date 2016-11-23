@@ -4,8 +4,7 @@
 # FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 #
 
-from org.flywaydb.core import Flyway
-from org.flywaydb.core.internal.info import MigrationInfoDumper
+from flyway.FlywayUtil import FlywayUtil
 from org.flywaydb.core.api import FlywayException
 
 import sys
@@ -38,62 +37,26 @@ print "*** End of Flyway configuration ***"
 print ""
 print "Connecting to flyway runner"
 
-flyway = Flyway()
+flyway = FlywayUtil.create_flyway_client(server_url, username, password)
+flyway.set_schemas(deployed.schemas)
+flyway.set_baseline_on_migrate(deployed.baselineOnMigrate)
+flyway.set_encoding(deployed.encoding)
+flyway.set_table(deployed.table)
+flyway.set_out_of_order(deployed.outOfOrder)
+flyway.set_validate_on_migrate(deployed.validateOnMigrate)
+flyway.set_placeholder_replacement(deployed.placeholderReplacement)
+flyway.set_placeholder_prefix(deployed.placeholderPrefix)
+flyway.set_placeholder_suffix(deployed.placeholderSuffix)
+flyway.set_target_as_string(deployed.targetVersion)
 
-flyway.setDataSource(server_url,username,password)
-
-flyway.setSchemas(list(deployed.schemas))
-
-# a boolean is required
-flyway.setBaselineOnMigrate(deployed.baselineOnMigrate)
-
-if deployed.encoding:
-    flyway.setEncoding(deployed.encoding)
-
-if deployed.table:
-    flyway.setTable(deployed.table)
-
-# a boolean is required
-flyway.setOutOfOrder(deployed.outOfOrder)
-
-# a boolean is required
-flyway.setValidateOnMigrate(deployed.validateOnMigrate)
-
-# a boolean is required
-flyway.setPlaceholderReplacement(deployed.placeholderReplacement)
-
-if deployed.placeholderPrefix:
-    flyway.setPlaceholderPrefix(deployed.placeholderPrefix)
-
-if deployed.placeholderSuffix:
-    flyway.setPlaceholderSuffix(deployed.placeholderSuffix)
-
-if deployed.targetVersion:
-    flyway.setTargetAsString(deployed.targetVersion)
-
-folder_dir = deployed.file.path
-locations = []
-for location in deployed.locations:
-    resolved_location = "filesystem:%s/%s" % (folder_dir, location.replace("filesystem:",""))
-    print "Adding flyway location: [%s] for folder [%s]" % (resolved_location,deployed.file.name)
-    locations.append(resolved_location)
-flyway.setLocations(locations)
+flyway.set_locations(deployed.file.path, deployed.file.name, deployed.locations)
 
 try:
-    if deployed.startClean:
-        print "Clean the Flyway schemas"
-        flyway.clean()
-
-    if deployed.repair:
-        print "Repair the Flyway metadata table"
-        flyway.repair()
-
-    print "Start the Flyway migration"
-    migrations = flyway.migrate()
-    print "Number of migration scripts run: %s" % migrations
+    flyway.run_clean(deployed.startClean)
+    flyway.run_repair(deployed.repair)
+    flyway.migrate()
 except FlywayException, err:
     print "Migration failed with error: ", err
     sys.exit(1)
 finally:
-    # Show flyway info details
-    print "Flyway log results: ", MigrationInfoDumper.dumpToAsciiTable([flyway.info().current()])
+    flyway.log_results(deployed.container.infoMode)

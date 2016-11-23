@@ -14,11 +14,11 @@ db:
       - 3306:3306
 
 xld:
-  image: xebialabs/xld_dev_run:v5.5.5.7
+  image: xebialabs/xld_dev_run:v6.0.0.1
   volumes:
     - ~/xl-licenses:/license
     - ./../../../../:/data
   links:
    - db
   ports:
-   - "4516:4516"
+   - "14516:4516"

@@ -18,6 +18,18 @@
         <property name="password"
                   required="false"
                   password="true" description="The password to use to connect to the database"/>
+        <property name="infoMode" label="Info Mode" kind="enum"
+                  required="true"
+                  description="Info about all migrations, including applied, current and pending with details and status.">
+            <enum-values>
+                <value>All</value>
+                <value>Applied</value>
+                <value>Current</value>
+                <value>Pending</value>
+            </enum-values>
+        </property>
+        <method name="CheckLogging" delegate="jythonScript" description="Check info logging" script="flyway/info-logging.py" />
+
     </type>
 
     <type type="flyway.DeployedScripts" extends="udm.BaseDeployedArtifact" deployable-type="flyway.Scripts"
