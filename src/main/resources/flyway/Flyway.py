@@ -9,7 +9,7 @@
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
 # FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 #
-from java.net import URL, URLClassLoader
+from java.net import URLClassLoader
 from org.flywaydb.core import Flyway
 from org.flywaydb.core.internal.info import MigrationInfoDumper
 
