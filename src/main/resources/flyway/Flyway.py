@@ -3,7 +3,7 @@
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
 # FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 #
-
+from java.net import URL, URLClassLoader
 from org.flywaydb.core import Flyway
 from org.flywaydb.core.internal.info import MigrationInfoDumper
 
@@ -55,10 +55,21 @@ class FlywayClient(object):
         if target_as_string:
             self.flyway.setTargetAsString(target_as_string)
 
+    def set_classloader(self, path):
+        prev_cl = self.flyway.getClassLoader()
+        url_cl = URLClassLoader.newInstance([path], prev_cl)
+        print "New classloader: [%s]" % url_cl.getURLs()
+        self.flyway.setClassLoader(url_cl)
+
     def set_locations(self, path, name, locations):
         locs = []
         for location in locations:
-            resolved_location = "filesystem:%s/%s" % (path, location.replace("filesystem:",""))
+            if location.startswith("filesystem:"):
+                resolved_location = "filesystem:%s/%s" % (path, location.replace("filesystem:",""))
+            elif location.startswith("classpath:"):
+                resolved_location = location
+            else:
+                resolved_location = location
             print "Adding flyway location: [%s] for folder [%s]" % (resolved_location,name)
             locs.append(resolved_location)
         self.flyway.setLocations(locs)

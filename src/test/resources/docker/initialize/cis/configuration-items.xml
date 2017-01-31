@@ -18,6 +18,10 @@
       <orchestrator />
       <applicationDependencies />
     </udm.DeploymentPackage>
+    <udm.DeploymentPackage id="Applications/DB Package/2.0.0" created-by="admin" created-at="2016-11-03T20:56:58.935+0000" last-modified-by="admin" last-modified-at="2016-11-03T21:02:42.336+0000">
+      <orchestrator />
+      <applicationDependencies />
+    </udm.DeploymentPackage>
     <udm.Application id="Applications/DB Package" created-by="admin" created-at="2016-11-03T20:56:51.425+0000" last-modified-by="admin" last-modified-at="2016-11-03T20:56:59.018+0000">
       <lastVersion>1.0.0</lastVersion>
     </udm.Application>
@@ -43,7 +47,22 @@
       <schemas>
         <value>myschema</value>
       </schemas>
-      <locations />
+      <locations>
+        <value>filesystem:flyway</value>
+      </locations>
+    </flyway.Scripts>
+    <flyway.Scripts id="Applications/DB Package/2.0.0/flyway_scripts" created-by="admin" created-at="2016-11-03T21:02:41.274+0000" last-modified-by="admin" last-modified-at="2016-11-03T21:03:20.437+0000" file="Applications/DB Package/2.0.0/flyway_scripts/flyway.zip">
+      <tags />
+      <scanPlaceholders>true</scanPlaceholders>
+      <placeholders />
+      <fileUri>jcr:flyway.zip</fileUri>
+      <schemas>
+        <value>myschema</value>
+      </schemas>
+      <locations>
+        <value>filesystem:flyway</value>
+        <value>classpath:db/migration</value>
+      </locations>
     </flyway.Scripts>
   </xl:exported-configuration-items>
 </xl:export>

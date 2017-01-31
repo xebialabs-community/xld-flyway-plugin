@@ -5,9 +5,11 @@
 #
 
 from flyway.FlywayUtil import FlywayUtil
+from java.io import File
 from org.flywaydb.core.api import FlywayException
 
 import sys
+import os
 
 flyway_runner = deployed.container
 server_url = flyway_runner.getProperty("serverUrl")
@@ -49,6 +51,7 @@ flyway.set_placeholder_prefix(deployed.placeholderPrefix)
 flyway.set_placeholder_suffix(deployed.placeholderSuffix)
 flyway.set_target_as_string(deployed.targetVersion)
 
+flyway.set_classloader(File("%s/%s/db.jar" % (os.getcwd(),deployed.file.path)).toURI().toURL())
 flyway.set_locations(deployed.file.path, deployed.file.name, deployed.locations)
 
 try:

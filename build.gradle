@@ -12,9 +12,9 @@ apply plugin: 'maven'
 
 xlDocker {
   compileImage = 'xebialabs/xld_dev_compile'
-  compileVersion = 'v6.0.0.1'
+  compileVersion = 'v6.1.0.1'
   runImage = 'xebialabs/xld_dev_run'
-  runVersion = 'v6.0.0.1'
+  runVersion = 'v6.1.0.1'
   runPortMapping = '14516:4516'
   download("mysql_driver") {
     src(["http://central.maven.org/maven2/mysql/mysql-connector-java/6.0.5/mysql-connector-java-6.0.5.jar"])
@@ -24,9 +24,9 @@ xlDocker {
 
 }
 
-version='2.1.0'
+version='2.2.0'
 
-def apiVersion = '2016.1.6'
+def apiVersion = '2016.2.2'
 
 repositories {
   mavenLocal()

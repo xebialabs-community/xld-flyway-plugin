@@ -65,3 +65,4 @@ Finally, restart the server.
     * outOfOrder        - `boolean` 			- Allows migrations to be run "out of order". 
 																						If you already have versions 1 and 3 applied, and now a version 2 is found, it will be applied too instead of being ignored.
     * validateOnMigrate - `boolean` 			- Whether to automatically call validate or not when running migrate.
+    * When using Java based migrations, the java classes need to be in a jar with name `db.jar` and under the folder artifact.
