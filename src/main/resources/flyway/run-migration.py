@@ -53,6 +53,7 @@ flyway.set_validate_on_migrate(deployed.validateOnMigrate)
 flyway.set_placeholder_replacement(deployed.placeholderReplacement)
 flyway.set_placeholder_prefix(deployed.placeholderPrefix)
 flyway.set_placeholder_suffix(deployed.placeholderSuffix)
+flyway.set_placeholders(deployed.flywayPlaceholders)
 flyway.set_target_as_string(deployed.targetVersion)
 
 flyway.set_classloader(File("%s/%s/db.jar" % (os.getcwd(),deployed.file.path)).toURI().toURL())

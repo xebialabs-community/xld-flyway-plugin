@@ -88,6 +88,10 @@
                   kind="string"
                   required="false"
                   description="The target version up to which Flyway should consider migrations. The special value current designates the current version of the schema. (default: the latest version)"/>
+        <property name="flywayPlaceholders"
+                  kind="map_string_string"
+                  required="false"
+                  description="Sets the placeholders to replace in sql migration scripts."/>
         <!-- hidden parameters -->
         <property name="startClean"
                   kind="boolean"
