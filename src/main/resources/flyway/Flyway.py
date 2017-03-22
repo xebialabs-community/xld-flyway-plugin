@@ -54,7 +54,7 @@ class FlywayClient(object):
 
     def set_placeholder_suffix(self, placeholder_suffix):
             if placeholder_suffix:
-                self.flyway.setPlaceholderPrefix(placeholder_suffix)
+                self.flyway.setPlaceholderSuffix(placeholder_suffix)
 
     def set_placeholders(self, placeholders):
         if placeholders:
