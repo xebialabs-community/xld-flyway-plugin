@@ -18,7 +18,7 @@ See the [XL Deploy Documentation](https://docs.xebialabs.com/xl-deploy/) for bac
 [xld-flyway-plugin-codacy-url]: https://www.codacy.com/app/joris-dewinne/xld-flyway-plugin
 [xld-flyway-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xld-flyway-plugin/badges/gpa.svg
 [xld-flyway-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-flyway-plugin
-[xld-flyway-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+[xld-flyway-plugin-license-image]: https://img.shields.io/badge/license-MIT-yellow.svg
 [xld-flyway-plugin-license-url]: https://opensource.org/licenses/MIT
 [xld-flyway-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xld-flyway-plugin/total.svg
 [xld-flyway-plugin-downloads-url]: https://github.com/xebialabs-community/xld-flyway-plugin/releases
