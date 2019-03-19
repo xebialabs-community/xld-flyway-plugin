@@ -31,7 +31,8 @@ See http://flywaydb.org/documentation/commandline/migrate.html for more informat
 # Requirements #
 
 * **Requirements**
-  * **XL Deploy** 5.1.0+
+  * plugin versions <= v2.3.1 require **XL Deploy** 5.1.0+
+  * plugin versions >= v3.0.0 require **XL Deploy** 8.5.0+
 
 # Build #
 
