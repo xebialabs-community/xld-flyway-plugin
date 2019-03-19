@@ -49,7 +49,7 @@
                   password="true"
                   description="The password to use to connect to the database."/>
         <property name="schemas"
-                  kind="set_of_string"
+                  kind="list_of_string"
                   required="true"
                   description="Case-sensitive list of schemas managed by Flyway."/>
         <property name="table"
@@ -57,7 +57,7 @@
                   required="false"
                   description="The name of Flyway's metadata table."/>
         <property name="locations"
-                  kind="set_of_string"
+                  kind="list_of_string"
                   required="false"
                   description="List of locations to scan recursively for migrations."/>
         <property name="encoding"
