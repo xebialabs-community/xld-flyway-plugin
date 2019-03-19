@@ -10,6 +10,7 @@ See the [XL Deploy Documentation](https://docs.xebialabs.com/xl-deploy/) for bac
 [![Codacy Badge][xld-flyway-plugin-codacy-image] ][xld-flyway-plugin-codacy-url]
 [![Code Climate][xld-flyway-plugin-code-climate-image] ][xld-flyway-plugin-code-climate-url]
 [![License: MIT][xld-flyway-plugin-license-image] ][xld-flyway-plugin-license-url]
+[![Downloads][xld-flyway-plugin-downloads-image] ][xld-flyway-plugin-downloads-url]
 
 [xld-flyway-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xld-flyway-plugin.svg?branch=master
 [xld-flyway-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xld-flyway-plugin
@@ -17,9 +18,10 @@ See the [XL Deploy Documentation](https://docs.xebialabs.com/xl-deploy/) for bac
 [xld-flyway-plugin-codacy-url]: https://www.codacy.com/app/joris-dewinne/xld-flyway-plugin
 [xld-flyway-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xld-flyway-plugin/badges/gpa.svg
 [xld-flyway-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-flyway-plugin
-[xld-flyway-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+[xld-flyway-plugin-license-image]: https://img.shields.io/badge/license-MIT-yellow.svg
 [xld-flyway-plugin-license-url]: https://opensource.org/licenses/MIT
-
+[xld-flyway-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xld-flyway-plugin/total.svg
+[xld-flyway-plugin-downloads-url]: https://github.com/xebialabs-community/xld-flyway-plugin/releases
 
 
 # Overview #
